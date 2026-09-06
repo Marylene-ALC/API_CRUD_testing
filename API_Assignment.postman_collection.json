@@ -49,20 +49,11 @@
       "name": "Create Gist",
       "event": [
         {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
           "listen": "test",
           "script": {
             "type": "text/javascript",
             "exec": [
-              "const jsonData = pm.response.json();\r\n\r\npm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\n\r\npm.test(\"Response contains a Gist ID\", function () {\r\n    pm.expect(jsonData.id).to.exist;\r\n});\r\n\r\npm.test(\"Gist description is correct\", function () {\r\n    pm.expect(jsonData.description)\r\n        .to.eql(\"Postman API Assignment - CRUD Testing\");\r\n});\r\n\r\nif (jsonData.id) {\r\n    pm.environment.set(\"gist_id\", jsonData.id);\r\n}"
+              "const jsonData = pm.response.json();\r\n\r\npm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\n\r\npm.test(\"Response contains a Gist ID\", function () {\r\n    pm.expect(jsonData.id).to.exist;\r\n});\r\n\r\npm.test(\"Gist description is correct\", function () {\r\n    pm.expect(jsonData.description)\r\n        .to.eql(\"Postman API CRUD Testing Assignment\");\r\n});\r\n\r\nif (jsonData.id) {\r\n    pm.environment.set(\"gist_id\", jsonData.id);\r\n}"
             ]
           }
         }
@@ -82,7 +73,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"description\": \"Postman API Assignment - CRUD Testing\",\r\n    \"public\": false,\r\n    \"files\": {\r\n        \"assignment.txt\": {\r\n            \"content\": \"This Gist was created using the GitHub REST API and Postman.\"\r\n        }\r\n    }\r\n}",
+          "raw": "{\r\n    \"description\": \"Postman API CRUD Testing Assignment\",\r\n    \"public\": false,\r\n    \"files\": {\r\n        \"assignment.txt\": {\r\n            \"content\": \"The gist was created by using the GitHub REST API and Postman.\"\r\n        }\r\n    }\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -148,7 +139,7 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "const jsonData = pm.response.json();\r\n\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Gist description was updated\", function () {\r\n    pm.expect(jsonData.description)\r\n        .to.eql(\"Postman API Assignment - Updated Gist\");\r\n});\r\n\r\npm.test(\"Updated file exists\", function () {\r\n    pm.expect(jsonData.files).to.have.property(\"assignment.txt\");\r\n});"
+              "const jsonData = pm.response.json();\r\n\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Gist Description was Updated\", function () {\r\n    pm.expect(jsonData.description)\r\n        .to.eql(\"Updating one part of the Gist\");\r\n});\r\n\r\npm.test(\"Updated file exists\", function () {\r\n    pm.expect(jsonData.files).to.have.property(\"assignment.txt\");\r\n});"
             ]
           }
         }
@@ -168,7 +159,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"description\": \"Postman API Assignment - Updated Gist\",\r\n  \"files\": {\r\n    \"assignment.txt\": {\r\n      \"content\": \"This Gist was updated using a PATCH request in Postman.\"\r\n    }\r\n  }\r\n}",
+          "raw": "{\r\n  \"description\": \"Updating one part of the Gist\",\r\n  \"files\": {\r\n    \"assignment.txt\": {\r\n      \"content\": \" By using a PATCH request, the gist was updated.\"\r\n    }\r\n  }\r\n}",
           "options": {
             "raw": {
               "language": "json"
